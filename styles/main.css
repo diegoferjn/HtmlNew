@@ -1,0 +1,94 @@
+/*
+============================================
+1. RESET/NORMALIZACIÓN LIGERA
+============================================
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #e6edf3;
+  background: #0f141a;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/*
+============================================
+4. LAYOUT BASE (CONTENEDOR, HEADER, MAIN, FOOTER)
+============================================
+*/
+/* Header */
+.header {
+  background: var(--card);
+  border-bottom: 1px solid #202938;
+  padding: var(--space-md) 0;
+}
+
+.header .container {
+  padding: var(--space-md);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: var(--space-xs);
+}
+
+.tagline {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* Main */
+.main {
+  min-height: 80vh;
+}
+
+/* Hero */
+.hero {
+  background: var(--card);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--muted);
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+.footer {
+  background: var(--card);
+  border-top: 1px solid #202938;
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl) 0;
+}
