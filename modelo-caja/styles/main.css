@@ -1,0 +1,133 @@
+/*
+============================================
+1. RESET/NORMALIZACIÓN LIGERA
+============================================
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/*
+============================================
+2. VARIABLES CSS (mínimas)
+============================================
+*/
+:root {
+  --bg: #0f141a;
+  --text: #e6edf3;
+  --muted: #9fb0c0;
+  --card: #121a22;
+  --border: #223041;
+  --primary: #3b82f6;
+}
+
+/*
+============================================
+3. ESTILOS BASE
+============================================
+*/
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/*
+============================================
+4. LAYOUT
+============================================
+*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.section-title {
+  margin: 0 0 0.25rem;
+}
+
+.section-description {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.newsletter,
+.suggest-game {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/*
+============================================
+5. FORMULARIOS (mínimo)
+============================================
+*/
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.form-hint {
+  color: var(--muted);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+@media (max-width: 720px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
