@@ -67,23 +67,6 @@ body {
   padding: var(--space-md) 0;
 }
 
-.header .container {
-  padding: var(--space-md);
-}
-
-.logo h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--brand);
-  margin-bottom: var(--space-xs);
-}
-
-.tagline {
-  font-size: 0.875rem;
-  color: var(--muted);
-  font-weight: 400;
-}
-
 /* Main */
 .main {
   min-height: 80vh;
