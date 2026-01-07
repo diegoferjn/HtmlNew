@@ -17,6 +17,16 @@
         <h1>GameList</h1>
         <p class="tagline">Tu colección personal de videojuegos</p>
       </div>
+
+      <!-- NAV (para que tenga sentido el ejercicio de Flexbox en navegación) -->
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#top-picks">Top Picks</a></li>
+          <li><a href="#añadir">Añadir</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -33,6 +43,34 @@
             descubre nuevos juegos recomendados por la comunidad.
           </p>
           <a href="#newsletter" class="btn btn-primary">Explorar colección</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Picks (nuevo para el ejercicio de flex-wrap) -->
+    <section id="top-picks" class="top-picks">
+      <div class="container">
+        <h2 class="section-title">Top Picks</h2>
+        <p class="section-description">Mis juegos favoritos del momento</p>
+
+        <div class="picks-grid">
+          <article class="pick-card">
+            <h3 class="pick-title">Hollow Knight</h3>
+            <p class="pick-description">Metroidvania perfecto</p>
+            <div class="pick-rating">★★★★★</div>
+          </article>
+
+          <article class="pick-card">
+            <h3 class="pick-title">Breath of the Wild</h3>
+            <p class="pick-description">Aventura épica</p>
+            <div class="pick-rating">★★★★★</div>
+          </article>
+
+          <article class="pick-card">
+            <h3 class="pick-title">Portal 2</h3>
+            <p class="pick-description">Puzzle genial</p>
+            <div class="pick-rating">★★★★★</div>
+          </article>
         </div>
       </div>
     </section>
