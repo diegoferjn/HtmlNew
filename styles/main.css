@@ -1,0 +1,199 @@
+:root {
+  --brand: #2563eb;
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* Base */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a { color: inherit; }
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: var(--space-lg) 0;
+}
+
+/* Header + nav (existía en responsive sin drama: .header .container y .nav-list) */
+.header {
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-md) 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.brand {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: var(--space-md);
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/*
+============================================
+6. GRID MÍNIMO PARA CUADRÍCULAS
+============================================
+*/
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.card {
+  border: 1px solid var(--border);
+  padding: var(--space-md);
+}
+
+.card-title {
+  margin: 0 0 var(--space-sm);
+}
+
+.card-meta {
+  margin: 0 0 var(--space-sm);
+  color: var(--muted);
+}
+
+.card-rating {
+  margin: 0;
+}
+
+/* Top Picks (existía en responsive sin drama: .picks-grid y .pick-card) */
+.picks-grid {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.pick-card {
+  flex: 1;
+  border: 1px solid var(--border);
+  padding: var(--space-md);
+}
+
+/* Form (existía en responsive sin drama: .form-row) */
+.contact-form {
+  border: 1px solid var(--border);
+  padding: var(--space-md);
+}
+
+.form-row {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+input, textarea, button {
+  font: inherit;
+}
+
+input, textarea {
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+}
+
+button {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+}
+
+/*
+============================================
+7. RESPONSIVE SIN DRAMA
+============================================
+*/
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .picks-grid {
+    flex-direction: column;
+  }
+
+  .pick-card {
+    flex: 1;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+/*
+============================================
+8. ACCESIBILIDAD MÍNIMA QUE IMPORTA
+============================================
+*/
+/* Contraste y foco visible */
+:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

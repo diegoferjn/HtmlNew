@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyecto - Responsive sin drama</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="brand" href="#">
+        <span class="brand-name">GameList</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#cards">Juegos</a></li>
+          <li><a href="#picks">Top Picks</a></li>
+          <li><a href="#form">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="cards" class="section">
+      <h1>Juegos</h1>
+
+      <div class="cards">
+        <article class="card">
+          <h2 class="card-title">The Legend of Zelda</h2>
+          <p class="card-meta">Plataforma: Nintendo</p>
+
+          <p class="card-rating" aria-label="Valoración">
+            ★★★★★
+            <span class="sr-only">Valoración: 5 de 5</span>
+          </p>
+        </article>
+
+        <article class="card">
+          <h2 class="card-title">God of War</h2>
+          <p class="card-meta">Plataforma: PlayStation</p>
+
+          <p class="card-rating" aria-label="Valoración">
+            ★★★★☆
+            <span class="sr-only">Valoración: 4 de 5</span>
+          </p>
+        </article>
+
+        <article class="card">
+          <h2 class="card-title">Halo Infinite</h2>
+          <p class="card-meta">Plataforma: Xbox</p>
+
+          <p class="card-rating" aria-label="Valoración">
+            ★★★★☆
+            <span class="sr-only">Valoración: 4 de 5</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="picks" class="section">
+      <h2>Top Picks</h2>
+
+      <div class="picks-grid">
+        <article class="pick-card">
+          <h3>Indie del mes</h3>
+          <p>Un juego corto pero brutal.</p>
+          <a href="#">Ver ficha</a>
+        </article>
+
+        <article class="pick-card">
+          <h3>Mejor historia</h3>
+          <p>Si te gusta el lore, este es.</p>
+          <a href="#">Ver ficha</a>
+        </article>
+
+        <article class="pick-card">
+          <h3>Para cooperativo</h3>
+          <p>Ideal para jugar en equipo.</p>
+          <a href="#">Ver ficha</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="form" class="section">
+      <h2>Contacto</h2>
+
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" type="text" autocomplete="name" />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2024 GameList</p>
+    </div>
+  </footer>
+</body>
+</html>
