@@ -1,23 +1,24 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GameList</title>
+  <title>Gamelist - Proyecto final</title>
+  <meta name="description" content="Proyecto educativo HTML/CSS puro: layout responsive, componentes y formularios con validación nativa." />
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 
 <body>
+  <!-- Skip link (accesibilidad) -->
   <a class="sr-only" href="#main">Saltar al contenido principal</a>
 
-  <header class="header">
-    <div class="container">
-      <a class="logo" href="#top">IndieVault</a>
+  <header class="header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Ir al inicio">IndieVault</a>
 
       <nav class="nav" aria-label="Navegación principal">
         <ul class="nav-list">
-          <li><a class="nav-link" href="#collection">Colección</a></li>
+          <li><a class="nav-link" href="#collection" aria-current="page">Colección</a></li>
           <li><a class="nav-link" href="#top-picks">Top Picks</a></li>
           <li><a class="nav-link" href="#newsletter">Newsletter</a></li>
           <li><a class="nav-link" href="#suggest-game">Sugerir juego</a></li>
@@ -28,20 +29,18 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
+    <section class="hero">
       <div class="container">
         <h1 class="hero-title">Tu biblioteca de indies, sin drama</h1>
-        <p class="hero-description">
-          Explora juegos, guarda favoritos y comparte recomendaciones.
-        </p>
+        <p class="hero-description">Explora juegos, guarda favoritos y comparte recomendaciones.</p>
         <div class="hero-actions">
-          <a class="btn" href="#collection">Ver colección</a>
+          <a class="btn btn-primary" href="#collection">Ver colección</a>
           <a class="btn btn-ghost" href="#contact">Contactar</a>
         </div>
       </div>
     </section>
 
-    <section class="collection" id="collection">
+    <section class="section collection" id="collection">
       <div class="container">
         <h2 class="section-title">Colección</h2>
         <p class="section-description">Una selección rápida para empezar.</p>
@@ -98,7 +97,7 @@
       </div>
     </section>
 
-    <section class="top-picks" id="top-picks">
+    <section class="section top-picks" id="top-picks">
       <div class="container">
         <h2 class="section-title">Top Picks</h2>
         <p class="section-description">Recomendaciones rápidas para hoy.</p>
@@ -120,7 +119,7 @@
       </div>
     </section>
 
-    <section class="newsletter" id="newsletter">
+    <section class="section newsletter" id="newsletter">
       <div class="container">
         <h2 class="section-title">Newsletter</h2>
         <p class="section-description">Un correo al mes. Sin spam.</p>
@@ -132,16 +131,16 @@
               <input class="form-input" id="nl-email" name="nl-email" type="email" required placeholder="tu@email.com" />
               <small class="form-hint">Formato válido obligatorio.</small>
             </div>
+
             <div class="form-group">
-              <label class="form-label sr-only" for="nl-submit">Enviar</label>
-              <button id="nl-submit" class="btn" type="submit">Apuntarme</button>
+              <button class="btn btn-primary" type="submit">Apuntarme</button>
             </div>
           </div>
         </form>
       </div>
     </section>
 
-    <section class="suggest-game" id="suggest-game">
+    <section class="section suggest-game" id="suggest-game">
       <div class="container">
         <h2 class="section-title">Sugerir juego</h2>
         <p class="section-description">¿Cuál debería entrar en la lista?</p>
@@ -152,6 +151,7 @@
               <label class="form-label" for="game-title">Título</label>
               <input class="form-input" id="game-title" name="game-title" type="text" required placeholder="Nombre del juego" />
             </div>
+
             <div class="form-group">
               <label class="form-label" for="game-genre">Género</label>
               <select class="form-select" id="game-genre" name="game-genre" required>
@@ -170,92 +170,65 @@
             <small class="form-hint">Mínimo recomendado: 10 caracteres.</small>
           </div>
 
-          <button class="btn" type="submit">Enviar sugerencia</button>
+          <button class="btn btn-primary" type="submit">Enviar sugerencia</button>
         </form>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="container">
-        <h2 class="section-title">Contacto</h2>
-        <p class="section-description">Respondo en 24-48h laborables.</p>
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Contacto</h2>
+          <p class="section-description">Respondo en 24-48h laborables.</p>
 
-        <form class="contact-form" action="#" method="post">
-          <fieldset>
-            <legend>Tus datos</legend>
+          <form class="contact-form" action="#" method="post">
+            <fieldset class="form-fieldset">
+              <legend class="form-legend">Tus datos</legend>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="name">Nombre</label>
-                <input class="form-input" id="name" name="name" type="text" required placeholder="Tu nombre" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Nombre</label>
+                  <input class="form-input" id="name" name="name" type="text" required placeholder="Tu nombre" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Correo electrónico</label>
+                  <input class="form-input" id="email" name="email" type="email" required placeholder="tu@email.com" />
+                  <small class="form-hint">Validación nativa por type="email".</small>
+                </div>
               </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend class="form-legend">Tu mensaje</legend>
 
               <div class="form-group">
-                <label class="form-label" for="email">Correo electrónico</label>
-                <input class="form-input" id="email" name="email" type="email" required placeholder="tu@email.com" />
-                <small class="form-hint">Validación nativa por type="email".</small>
+                <label class="form-label" for="message">Mensaje</label>
+                <textarea class="form-textarea" id="message" name="message" required minlength="10" placeholder="Escribe tu mensaje..."></textarea>
               </div>
-            </div>
-          </fieldset>
+            </fieldset>
 
-          <fieldset>
-            <legend>Tu mensaje</legend>
-
-            <div class="form-group">
-              <label class="form-label" for="message">Mensaje</label>
-              <textarea class="form-textarea" id="message" name="message" required minlength="10" placeholder="Escribe tu mensaje..."></textarea>
-            </div>
-          </fieldset>
-
-          <button class="btn" type="submit">Enviar</button>
-        </form>
-
-        <div class="contact-info">
-          <h3>Información</h3>
-          <p>Si es algo urgente, añade “URGENTE” en el asunto del email.</p>
-          <div class="contact-details">
-            <h4>Detalles</h4>
-            <ul>
-              <li>Respuesta en 24-48h</li>
-              <li>Soporte en español</li>
-              <li>Feedback claro y directo</li>
-            </ul>
-          </div>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
         </div>
+
+        <aside class="contact-info">
+          <h3 class="mb-2">Información</h3>
+          <p class="text-muted mb-3">Si es algo urgente, añade “URGENTE” en el asunto del email.</p>
+          <ul class="list">
+            <li>Respuesta en 24-48h</li>
+            <li>Soporte en español</li>
+            <li>Feedback claro y directo</li>
+          </ul>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <h3 class="footer-title">IndieVault</h3>
-          <p class="footer-description">Un proyecto de práctica para layout + responsive + accesibilidad.</p>
-        </div>
-
-        <div>
-          <h4 class="footer-subtitle">Enlaces</h4>
-          <ul class="footer-list">
-            <li><a class="footer-link" href="#collection">Colección</a></li>
-            <li><a class="footer-link" href="#top-picks">Top Picks</a></li>
-            <li><a class="footer-link" href="#contact">Contacto</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-subtitle">Legal</h4>
-          <p class="footer-info">Contenido de ejemplo. Sin cookies.</p>
-          <ul class="footer-list">
-            <li><a class="footer-link" href="#">Aviso legal</a></li>
-            <li><a class="footer-link" href="#">Privacidad</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copyright">© 2026 IndieVault. Todos los derechos reservados.</p>
-      </div>
+    <div class="container footer-inner">
+      <p class="text-muted">© 2026 IndieVault. Todos los derechos reservados.</p>
+      <a class="footer-link" href="#top">Volver arriba</a>
     </div>
   </footer>
 </body>
