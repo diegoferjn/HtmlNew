@@ -1,235 +1,264 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Patrón de página completa</title>
-    <link rel="stylesheet" href="styles/main.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formularios útiles</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
 
-  <body>
-    <!-- Accesibilidad: salto directo al contenido -->
-    <a class="sr-only" href="#main">Saltar al contenido principal</a>
+<body>
+  <!-- Skip link (accesibilidad) -->
+  <a class="sr-only" href="#main">Saltar al contenido principal</a>
 
-    <header class="header" id="top">
+  <header class="header">
+    <div class="container">
+      <a class="logo" href="#top">IndieVault</a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#collection">Colección</a></li>
+          <li><a class="nav-link" href="#top-picks">Top Picks</a></li>
+          <li><a class="nav-link" href="#newsletter">Newsletter</a></li>
+          <li><a class="nav-link" href="#suggest-game">Sugerir juego</a></li>
+          <li><a class="nav-link" href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
       <div class="container">
-        <a class="logo" href="#top">GameShelf</a>
-
-        <nav class="nav" aria-label="Navegación principal">
-          <ul class="nav-list">
-            <li><a href="#collection">Colección</a></li>
-            <li><a href="#picks">Top Picks</a></li>
-            <li><a href="#newsletter">Newsletter</a></li>
-            <li><a href="#suggest">Sugerir</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main">
-      <section class="hero">
-        <div class="container">
-          <h1 class="hero-title">Tu estantería de juegos, más ordenada</h1>
-          <p class="hero-description">
-            Proyecto evolutivo: layout, grid, responsive y accesibilidad mínima. Hoy lo
-            dejamos “presentable” con secciones y footer.
-          </p>
+        <h1 class="hero-title">Tu biblioteca de indies, sin drama</h1>
+        <p class="hero-description">
+          Explora juegos, guarda favoritos y comparte recomendaciones.
+        </p>
+        <div class="hero-actions">
           <a class="btn" href="#collection">Ver colección</a>
-        </div>
-      </section>
-
-      <section class="collection" id="collection">
-        <div class="container">
-          <h2 class="section-title">Colección</h2>
-          <p class="section-description">
-            Tarjetas en grid para listar juegos de forma clara.
-          </p>
-
-          <div class="cards" id="cards">
-            <article class="card">
-              <_toggle class="sr-only">Valoración</span>
-              <div class="card-rating" aria-label="Valoración 4 de 5">★★★★☆</div>
-              <h3 class="card-title">Hollow Knight</h3>
-              <p class="card-text">Metroidvania con exploración, combate y un mundo precioso.</p>
-              <a class="card-link" href="#">Ver ficha</a>
-            </article>
-
-            <article class="card">
-              <span class="sr-only">Valoración</span>
-              <div class="card-rating" aria-label="Valoración 5 de 5">★★★★★</div>
-              <h3 class="card-title">Celeste</h3>
-              <p class="card-text">Plataformas exigente con una historia muy cuidada.</p>
-              <a class="card-link" href="#">Ver ficha</a>
-            </article>
-
-            <article class="card">
-              <span class="sr-only">Valoración</span>
-              <div class="card-rating" aria-label="Valoración 3 de 5">★★★☆☆</div>
-              <h3 class="card-title">Stardew Valley</h3>
-              <p class="card-text">Granja, relaciones y relax. Ideal para sesiones tranquilas.</p>
-              <a class="card-link" href="#">Ver ficha</a>
-            </article>
-
-            <article class="card">
-              <span class="sr-only">Valoración</span>
-              <div class="card-rating" aria-label="Valoración 4 de 5">★★★★☆</div>
-              <h3 class="card-title">Hades</h3>
-              <p class="card-text">Roguelike rápido con narrativa y combate adictivo.</p>
-              <a class="card-link" href="#">Ver ficha</a>
-            </article>
-
-            <article class="card">
-              <span class="sr-only">Valoración</span>
-              <div class="card-rating" aria-label="Valoración 5 de 5">★★★★★</div>
-              <h3 class="card-title">The Witcher 3</h3>
-              <p class="card-text">RPG enorme, misiones memorables y mundo vivo.</p>
-              <a class="card-link" href="#">Ver ficha</a>
-            </article>
-
-            <article class="card">
-              <span class="sr-only">Valoración</span>
-              <div class="card-rating" aria-label="Valoración 4 de 5">★★★★☆</div>
-              <h3 class="card-title">Portal 2</h3>
-              <p class="card-text">Puzles con humor y diseño brillante. Casi obligatorio.</p>
-              <a class="card-link" href="#">Ver ficha</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="top-picks" id="picks">
-        <div class="container">
-          <h2 class="section-title">Top Picks</h2>
-          <p class="section-description">
-            Selección rápida: en móvil se apila (flex en columna).
-          </p>
-
-          <div class="picks-grid">
-            <article class="pick-card">
-              <h3 class="pick-title">Para jugar 20 minutos</h3>
-              <p class="pick-text">Hades / Slay the Spire</p>
-            </article>
-            <article class="pick-card">
-              <h3 class="pick-title">Para desconectar</h3>
-              <p class="pick-text">Stardew Valley / Dorfromantik</p>
-            </article>
-            <article class="pick-card">
-              <h3 class="pick-title">Para retos</h3>
-              <p class="pick-text">Celeste / Hollow Knight</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="newsletter" id="newsletter">
-        <div class="container">
-          <h2 class="section-title">Newsletter</h2>
-          <p class="section-description">
-            Un formulario simple y usable (con foco visible).
-          </p>
-
-          <form class="form" action="#" method="post">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="tu@email.com" required />
-              </div>
-
-              <button class="btn" type="submit">Suscribirme</button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <section class="suggest-game" id="suggest">
-        <div class="container">
-          <h2 class="section-title">Sugerir un juego</h2>
-          <p class="section-description">
-            Una sección “extra” del patrón de página completa.
-          </p>
-
-          <form class="form" action="#" method="post">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="game">Nombre del juego</label>
-                <input id="game" name="game" type="text" placeholder="Ej: Outer Wilds" required />
-              </div>
-
-              <div class="form-field">
-                <label for="why">¿Por qué lo recomiendas?</label>
-                <input id="why" name="why" type="text" placeholder="Una frase" required />
-              </div>
-            </div>
-
-            <button class="btn" type="submit">Enviar sugerencia</button>
-          </form>
-        </div>
-      </section>
-
-      <section class="contact" id="contact">
-        <div class="container">
-          <h2 class="section-title">Contacto</h2>
-          <p class="section-description">
-            Sección de contacto bien estructurada, con info clara.
-          </p>
-
-          <div class="contact-info">
-            <h3>¿Hablamos?</h3>
-            <p>
-              Si quieres proponer mejoras al proyecto o añadir nuevas secciones,
-              escríbenos y lo vemos.
-            </p>
-
-            <div class="contact-details">
-              <h4>Datos</h4>
-              <ul>
-                <li>Email: contacto@gameshelf.local</li>
-                <li>Ubicación: España</li>
-                <li>Horario: L-V 09:00 - 18:00</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div>
-            <h3 class="footer-title">GameShelf</h3>
-            <p class="footer-description">
-              Un proyecto de ejemplo que evoluciona ejercicio a ejercicio.
-            </p>
-            <p class="footer-info">Hecho con HTML + CSS.</p>
-          </div>
-
-          <div>
-            <h4 class="footer-subtitle">Enlaces</h4>
-            <ul class="footer-list">
-              <li><a class="footer-link" href="#collection">Colección</a></li>
-              <li><a class="footer-link" href="#picks">Top Picks</a></li>
-              <li><a class="footer-link" href="#newsletter">Newsletter</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="footer-subtitle">Legal</h4>
-            <ul class="footer-list">
-              <li><a class="footer-link" href="#">Aviso legal</a></li>
-              <li><a class="footer-link" href="#">Privacidad</a></li>
-              <li><a class="footer-link" href="#">Cookies</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p class="footer-copyright">
-            © 2026 GameShelf. Todos los derechos reservados.
-          </p>
+          <a class="btn btn-ghost" href="#contact">Contactar</a>
         </div>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <section class="collection" id="collection">
+      <div class="container">
+        <h2 class="section-title">Colección</h2>
+        <p class="section-description">Una selección rápida para empezar.</p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-body">
+              <h3 class="card-title">Hollow Knight</h3>
+              <p class="card-text">Metroidvania oscuro con combate preciso.</p>
+              <p class="card-rating">
+                <span class="sr-only">Valoración:</span>
+                <span aria-hidden="true">★★★★☆</span>
+              </p>
+            </div>
+            <a class="card-link" href="#" aria-label="Ver detalles de Hollow Knight">Ver</a>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <h3 class="card-title">Celeste</h3>
+              <p class="card-text">Plataformas exigente y emotivo.</p>
+              <p class="card-rating">
+                <span class="sr-only">Valoración:</span>
+                <span aria-hidden="true">★★★★★</span>
+              </p>
+            </div>
+            <a class="card-link" href="#" aria-label="Ver detalles de Celeste">Ver</a>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <h3 class="card-title">Hades</h3>
+              <p class="card-text">Roguelike rápido con narrativa top.</p>
+              <p class="card-rating">
+                <span class="sr-only">Valoración:</span>
+                <span aria-hidden="true">★★★★☆</span>
+              </p>
+            </div>
+            <a class="card-link" href="#" aria-label="Ver detalles de Hades">Ver</a>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <h3 class="card-title">Stardew Valley</h3>
+              <p class="card-text">Farming + relax + progreso constante.</p>
+              <p class="card-rating">
+                <span class="sr-only">Valoración:</span>
+                <span aria-hidden="true">★★★★★</span>
+              </p>
+            </div>
+            <a class="card-link" href="#" aria-label="Ver detalles de Stardew Valley">Ver</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="top-picks" id="top-picks">
+      <div class="container">
+        <h2 class="section-title">Top Picks</h2>
+        <p class="section-description">Recomendaciones rápidas para hoy.</p>
+
+        <div class="picks-grid">
+          <article class="pick-card">
+            <h3 class="pick-title">Para 30 min</h3>
+            <p class="pick-text">Algo corto y directo.</p>
+          </article>
+          <article class="pick-card">
+            <h3 class="pick-title">Para perderte</h3>
+            <p class="pick-text">Una campaña larga con mundo vivo.</p>
+          </article>
+          <article class="pick-card">
+            <h3 class="pick-title">Co-op</h3>
+            <p class="pick-text">Ideal para jugar con alguien.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+        <h2 class="section-title">Newsletter</h2>
+        <p class="section-description">Un correo al mes. Sin spam.</p>
+
+        <form class="newsletter-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="nl-email">Email</label>
+              <input class="form-input" id="nl-email" name="nl-email" type="email" required placeholder="tu@email.com" />
+              <small class="form-hint">Formato válido obligatorio.</small>
+            </div>
+            <div class="form-group">
+              <label class="form-label sr-only" for="nl-submit">Enviar</label>
+              <button id="nl-submit" class="btn" type="submit">Apuntarme</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="suggest-game" id="suggest-game">
+      <div class="container">
+        <h2 class="section-title">Sugerir juego</h2>
+        <p class="section-description">¿Cuál debería entrar en la lista?</p>
+
+        <form class="suggest-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="game-title">Título</label>
+              <input class="form-input" id="game-title" name="game-title" type="text" required placeholder="Nombre del juego" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="game-genre">Género</label>
+              <select class="form-select" id="game-genre" name="game-genre" required>
+                <option value="">Elige uno...</option>
+                <option value="roguelike">Roguelike</option>
+                <option value="platformer">Plataformas</option>
+                <option value="rpg">RPG</option>
+                <option value="strategy">Estrategia</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="game-why">¿Por qué lo recomiendas?</label>
+            <textarea class="form-textarea" id="game-why" name="game-why" minlength="10" placeholder="Cuéntanos lo mejor del juego..."></textarea>
+            <small class="form-hint">Mínimo recomendado: 10 caracteres.</small>
+          </div>
+
+          <button class="btn" type="submit">Enviar sugerencia</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-description">Respondo en 24-48h laborables.</p>
+
+        <!-- EJERCICIO: Formulario de contacto completo con fieldset/legend + validación nativa -->
+        <form class="contact-form" action="#" method="post">
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">Tus datos</legend>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Nombre</label>
+                <input class="form-input" id="name" name="name" type="text" required placeholder="Tu nombre" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Correo electrónico</label>
+                <input class="form-input" id="email" name="email" type="email" required placeholder="tu@email.com" />
+                <small class="form-hint">Tiene validación nativa por ser type="email".</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">Tu mensaje</legend>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Mensaje</label>
+              <textarea class="form-textarea" id="message" name="message" required minlength="10" placeholder="Escribe tu mensaje..."></textarea>
+            </div>
+          </fieldset>
+
+          <button class="btn" type="submit">Enviar</button>
+        </form>
+
+        <div class="contact-info">
+          <h3>Información</h3>
+          <p>Si es algo urgente, añade “URGENTE” en el asunto del email.</p>
+          <div class="contact-details">
+            <h4>Detalles</h4>
+            <ul>
+              <li>Respuesta en 24-48h</li>
+              <li>Soporte en español</li>
+              <li>Feedback claro y directo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h3 class="footer-title">IndieVault</h3>
+          <p class="footer-description">Un proyecto de práctica para layout + responsive + accesibilidad.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-subtitle">Enlaces</h4>
+          <ul class="footer-list">
+            <li><a class="footer-link" href="#collection">Colección</a></li>
+            <li><a class="footer-link" href="#top-picks">Top Picks</a></li>
+            <li><a class="footer-link" href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-subtitle">Legal</h4>
+          <p class="footer-info">Contenido de ejemplo. Sin cookies.</p>
+          <ul class="footer-list">
+            <li><a class="footer-link" href="#">Aviso legal</a></li>
+            <li><a class="footer-link" href="#">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 IndieVault. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

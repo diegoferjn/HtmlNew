@@ -1,142 +1,102 @@
+/* styles/main.css */
+
 /*
 ============================================
-0. VARIABLES Y BASE
+1. VARIABLES + BASE
 ============================================
 */
-:root {
-  --bg: #0b1020;
-  --card: #111a2e;
-  --text: #e7ecf5;
-  --muted: #9aa6bf;
-  --brand: #6ea8fe;
-  --success: #3ddc97;
+:root{
+  --bg: #0b0f14;
+  --card: #111823;
+  --text: #e6edf6;
+  --muted: #a8b3c3;
+  --brand: #6ea8ff;
+  --success: #2ecc71;
+  --error: #ff5a6a;
 
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
+  --radius-md: 12px;
 
-  --radius: 12px;
+  --space-xs: 6px;
+  --space-sm: 10px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
   margin: 0;
-  padding: 0;
-}
-
-body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.5;
 }
+img{ max-width: 100%; display: block; }
+a{ color: inherit; }
 
-a {
-  color: inherit;
-}
-
-/*
-============================================
-1. UTILIDADES
-============================================
-*/
-.container {
-  width: min(1100px, calc(100% - 2rem));
-  margin: 0 auto;
+/* Container */
+.container{
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
 }
 
 /*
 ============================================
-2. HEADER
+2. HEADER + NAV
 ============================================
 */
-.header {
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #070a0f;
   border-bottom: 1px solid #202938;
-  background: var(--bg);
 }
-
-.header .container {
+.header .container{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-lg);
-  padding: var(--space-lg) 0;
+  padding: var(--space-md) 0;
 }
-
-.logo {
+.logo{
   text-decoration: none;
   font-weight: 700;
-  letter-spacing: 0.3px;
 }
-
-.nav-list {
+.nav-list{
   list-style: none;
   display: flex;
   gap: var(--space-md);
   margin: 0;
   padding: 0;
 }
-
-.nav-list a {
+.nav-link{
   text-decoration: none;
   color: var(--muted);
 }
-
-.nav-list a:hover {
+.nav-link:hover{
   color: var(--brand);
 }
 
 /*
 ============================================
-3. COMPONENTES BÁSICOS
+3. BOTONES
 ============================================
 */
-.btn {
+.btn{
   display: inline-block;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  text-decoration: none;
+  border: 1px solid #2d3742;
   background: var(--brand);
-  color: #0b1020;
-  font-weight: 700;
-  border: 0;
+  color: #08111f;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
   cursor: pointer;
 }
-
-.form {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.form-row {
-  display: flex;
-  gap: var(--space-md);
-  align-items: end;
-}
-
-.form-field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-label {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-input {
-  padding: 0.75rem;
-  border-radius: 10px;
-  border: 1px solid #202938;
-  background: #0f1730;
+.btn-ghost{
+  background: transparent;
   color: var(--text);
 }
 
@@ -145,88 +105,78 @@ input {
 4. CARDS (GRID)
 ============================================
 */
-.cards {
+.cards{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
-
-.card {
+.card{
   background: var(--card);
   border: 1px solid #202938;
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-body{
   padding: var(--space-lg);
 }
-
-.card-rating {
-  color: var(--success);
-  margin-bottom: var(--space-sm);
-  font-size: 1rem;
+.card-title{
+  margin: 0 0 var(--space-sm);
+  font-size: 1.1rem;
 }
-
-.card-title {
-  margin: 0 0 var(--space-sm) 0;
-}
-
-.card-text {
-  margin: 0 0 var(--space-md) 0;
+.card-text{
+  margin: 0 0 var(--space-md);
   color: var(--muted);
-  line-height: 1.6;
 }
-
-.card-link {
+.card-rating{
+  margin: 0;
+  color: var(--muted);
+}
+.card-link{
+  display: block;
+  text-align: center;
+  padding: var(--space-md);
   text-decoration: none;
+  border-top: 1px solid #202938;
+  color: var(--muted);
+}
+.card-link:hover{
   color: var(--brand);
 }
 
 /*
 ============================================
-5. TOP PICKS (FLEX)
+5. PICKS (FLEX)
 ============================================
 */
-.picks-grid {
+.picks-grid{
   display: flex;
   gap: var(--space-lg);
 }
-
-.pick-card {
-  flex: 1;
+.pick-card{
   background: var(--card);
   border: 1px solid #202938;
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   padding: var(--space-lg);
+  flex: 1;
 }
-
-.pick-title {
-  margin: 0 0 var(--space-sm) 0;
+.pick-title{
+  margin: 0 0 var(--space-sm);
 }
-
-.pick-text {
+.pick-text{
   margin: 0;
   color: var(--muted);
 }
 
 /*
 ============================================
-6. ACCESIBILIDAD MÍNIMA QUE IMPORTA
+6. FORM BASE (para forms existentes)
 ============================================
 */
-/* Contraste y foco visible */
-:focus {
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
-}
-
-/* Texto solo para lectores de pantalla */
-.sr-only {
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
+.newsletter-form .btn{
+  width: 100%;
 }
 
 /*
@@ -260,29 +210,101 @@ input {
 
   .form-row {
     flex-direction: column;
-    align-items: stretch;
   }
 }
 
 /*
 ============================================
-13. ORDEN Y MANTENIMIENTO
+8. ACCESIBILIDAD MÍNIMA QUE IMPORTA
 ============================================
 */
-/* Secciones específicas */
+/* Contraste y foco visible */
+:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+============================================
+10. FORMULARIOS ÚTILES (INPUTS, RADIOS, SELECTS)
+============================================
+*/
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+.form-row {
+  display: flex;
+  gap: var(--space-md);
+}
+.form-label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+  color: var(--text);
+}
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: #0c1117;
+  border: 1px solid #2d3742;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--text);
+  font: inherit;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: 2px solid var(--brand);
+  border-color: var(--brand);
+  background: #0f141a;
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-hint {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+/* Estados de validación en formularios */
+.form-input:invalid {
+  border-color: var(--error);
+}
+.form-input:valid {
+  border-color: var(--success);
+}
+
+/*
+============================================
+11.1 SECCIONES (TÍTULOS + PADDING + FONDOS)
+============================================
+*/
 .hero {
   background: var(--card);
   padding: var(--space-2xl) 0;
   text-align: center;
 }
-
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: var(--space-md);
 }
-
 .hero-description {
   font-size: 1.125rem;
   color: var(--muted);
@@ -291,7 +313,6 @@ input {
   margin-left: auto;
   margin-right: auto;
 }
-
 .section-title {
   font-size: 2rem;
   font-weight: 600;
@@ -299,81 +320,69 @@ input {
   margin-bottom: var(--space-sm);
   text-align: center;
 }
-
 .section-description {
   color: var(--muted);
   text-align: center;
   margin-bottom: var(--space-xl);
 }
-
 .collection,
 .top-picks,
 .newsletter,
 .suggest-game,
 .contact {
   padding: var(--space-2xl) 0;
-  scroll-margin-top: 120px; /* Asegura que el título sea visible */
+  scroll-margin-top: 120px;
 }
-
 .top-picks {
   background: var(--card);
 }
-
 .newsletter {
   background: var(--card);
 }
-
-/* Nota: gradientes más adelante */
 .suggest-game {
   background: var(--bg);
 }
-
 .contact {
   background: var(--card);
 }
 
+/* Contact extra (del tema de secciones) */
 .contact-info {
   max-width: 800px;
-  margin: 0 auto;
+  margin: var(--space-xl) auto 0;
   text-align: center;
 }
-
 .contact-info h3 {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-md);
 }
-
 .contact-info p {
   color: var(--muted);
   margin-bottom: var(--space-md);
   line-height: 1.6;
 }
-
 .contact-details {
   margin-top: var(--space-lg);
 }
-
 .contact-details h4 {
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-sm);
 }
-
 .contact-details ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-
 .contact-details li {
   color: var(--muted);
   padding: var(--space-xs) 0;
   padding-left: var(--space-lg);
   list-style: none;
 }
-
 .contact-details li::before {
   content: "✓ ";
   color: var(--success);
@@ -381,62 +390,72 @@ input {
   margin-right: var(--space-sm);
 }
 
-/* Footer */
-.footer {
-  padding: var(--space-2xl) 0;
+/*
+============================================
+11.3 FOOTER COMPLETO
+============================================
+*/
+.footer{
   border-top: 1px solid #202938;
-  background: var(--bg);
+  padding: var(--space-2xl) 0;
 }
-
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-xl);
   margin-bottom: var(--space-xl);
 }
-
 .footer-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--brand);
   margin-bottom: var(--space-sm);
 }
-
 .footer-subtitle {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-sm);
 }
-
 .footer-description,
 .footer-info {
   color: var(--muted);
   margin-bottom: var(--space-sm);
 }
-
 .footer-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .footer-link {
   color: var(--muted);
   text-decoration: none;
 }
-
 .footer-link:hover {
   color: var(--brand);
 }
-
 .footer-bottom {
   border-top: 1px solid #202938;
   padding-top: var(--space-lg);
   text-align: center;
 }
-
 .footer-copyright {
   color: var(--muted);
   font-size: 0.875rem;
+}
+
+/*
+============================================
+12. FIELDSET / LEGEND (mínimo para que no moleste)
+============================================
+*/
+.form-fieldset{
+  border: 1px solid #202938;
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin: 0 0 var(--space-lg);
+}
+.form-legend{
+  padding: 0 var(--space-sm);
+  color: var(--muted);
 }
