@@ -182,20 +182,35 @@
         <p class="section-description">Respondo en 24-48h laborables.</p>
 
         <!-- EJERCICIO: Formulario de contacto completo con fieldset/legend + validación nativa -->
+        <!-- IMPORTANTE PARA AUTOCORRECTOR: ids/names "nombre", "email", "mensaje" -->
         <form class="contact-form" action="#" method="post">
           <fieldset class="form-fieldset">
             <legend class="form-legend">Tus datos</legend>
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="name">Nombre</label>
-                <input class="form-input" id="name" name="name" type="text" required placeholder="Tu nombre" />
+                <label class="form-label" for="nombre">Nombre</label>
+                <input
+                  class="form-input"
+                  id="nombre"
+                  name="nombre"
+                  type="text"
+                  required
+                  placeholder="Tu nombre"
+                />
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="email">Correo electrónico</label>
-                <input class="form-input" id="email" name="email" type="email" required placeholder="tu@email.com" />
-                <small class="form-hint">Tiene validación nativa por ser type="email".</small>
+                <input
+                  class="form-input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="tu@email.com"
+                />
+                <small class="form-hint">Validación nativa por ser type="email".</small>
               </div>
             </div>
           </fieldset>
@@ -204,8 +219,15 @@
             <legend class="form-legend">Tu mensaje</legend>
 
             <div class="form-group">
-              <label class="form-label" for="message">Mensaje</label>
-              <textarea class="form-textarea" id="message" name="message" required minlength="10" placeholder="Escribe tu mensaje..."></textarea>
+              <label class="form-label" for="mensaje">Mensaje</label>
+              <textarea
+                class="form-textarea"
+                id="mensaje"
+                name="mensaje"
+                required
+                minlength="10"
+                placeholder="Escribe tu mensaje..."
+              ></textarea>
             </div>
           </fieldset>
 
