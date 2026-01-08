@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GameList</title>
 
-  <!-- CSS externo -->
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
@@ -18,11 +17,10 @@
         <p class="tagline">Tu colección personal de videojuegos</p>
       </div>
 
-      <nav class="nav" aria-label="Navegación principal">
+      <nav class="nav">
         <ul class="nav-list">
           <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#top-picks">Top Picks</a></li>
-          <li><a href="#cards">Colección</a></li>
+          <li><a href="#picks">Top Picks</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
           <li><a href="#añadir">Sugerir</a></li>
         </ul>
@@ -42,13 +40,38 @@
             Crea tu lista personal de videojuegos, califica cada título y
             descubre nuevos juegos recomendados por la comunidad.
           </p>
-          <a href="#cards" class="btn btn-primary">Explorar colección</a>
+          <a href="#newsletter" class="btn btn-primary">Explorar colección</a>
         </div>
       </div>
     </section>
 
-    <!-- Top Picks (Flexbox) -->
-    <section id="top-picks" class="top-picks">
+    <!-- Cards (Grid) -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Colección</h2>
+        <p class="section-description">Algunos juegos en tu biblioteca</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Celeste</h3>
+            <p>Plataformas exigente y emotivo.</p>
+          </article>
+
+          <article class="card">
+            <h3>Stardew Valley</h3>
+            <p>Granjas, calma y progreso.</p>
+          </article>
+
+          <article class="card">
+            <h3>Hades</h3>
+            <p>Acción roguelike excelente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Picks (Flexbox wrap) -->
+    <section id="picks" class="top-picks">
       <div class="container">
         <h2 class="section-title">Top Picks</h2>
         <p class="section-description">Mis juegos favoritos del momento</p>
@@ -75,40 +98,6 @@
       </div>
     </section>
 
-    <!-- Cards (Grid) -->
-    <section id="cards" class="collection">
-      <div class="container">
-        <h2 class="section-title">Colección</h2>
-        <p class="section-description">Algunas tarjetas de ejemplo en formato grid</p>
-
-        <div class="cards">
-          <article class="pick-card">
-            <h3 class="pick-title">Celeste</h3>
-            <p class="pick-description">Plataformas desafiante</p>
-            <div class="pick-rating">★★★★★</div>
-          </article>
-
-          <article class="pick-card">
-            <h3 class="pick-title">Stardew Valley</h3>
-            <p class="pick-description">Relax y gestión</p>
-            <div class="pick-rating">★★★★☆</div>
-          </article>
-
-          <article class="pick-card">
-            <h3 class="pick-title">Hades</h3>
-            <p class="pick-description">Roguelike brutal</p>
-            <div class="pick-rating">★★★★★</div>
-          </article>
-
-          <article class="pick-card">
-            <h3 class="pick-title">Inside</h3>
-            <p class="pick-description">Narrativa oscura</p>
-            <div class="pick-rating">★★★★☆</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- Newsletter -->
     <section class="newsletter" id="newsletter">
       <div class="container">
@@ -130,11 +119,7 @@
               class="form-input"
               placeholder="tu@email.com"
               required
-              aria-describedby="email-help"
             />
-            <small id="email-help" class="form-hint">
-              Te enviaremos recomendaciones personalizadas
-            </small>
           </div>
 
           <button type="submit" class="btn btn-primary">Suscribirse</button>
@@ -208,28 +193,6 @@
                 required
               />
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="url" class="form-label">Enlace (opcional)</label>
-            <input
-              type="url"
-              id="url"
-              name="url"
-              class="form-input"
-              placeholder="https://ejemplo.com"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="comment" class="form-label">Comentario (opcional)</label>
-            <textarea
-              id="comment"
-              name="comment"
-              class="form-textarea"
-              placeholder="¿Por qué recomiendas este juego?"
-              rows="4"
-            ></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Enviar sugerencia</button>

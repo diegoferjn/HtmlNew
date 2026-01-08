@@ -1,0 +1,90 @@
+/*
+============================================
+main.css — versión alumno (mínimo viable)
+============================================
+*/
+
+/* Variables base (ya usadas en ejercicios anteriores) */
+:root{
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 20px;
+  --radius-lg: 12px;
+  --card: #111827;
+}
+
+/* -----------------------------------------
+5. FLEXBOX MÍNIMO VIABLE
+----------------------------------------- */
+.header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md);
+}
+
+.nav-list{
+  display: flex;
+  list-style: none;
+  gap: var(--space-lg);
+  padding: 0;
+  margin: 0;
+}
+
+/* Top Picks */
+.picks-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+}
+
+.pick-card{
+  flex: 0 0 200px;
+  background: var(--card);
+  border: 1px solid #202938;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+/* -----------------------------------------
+6. GRID MÍNIMO PARA CUADRÍCULAS
+----------------------------------------- */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* -----------------------------------------
+7. RESPONSIVE SIN DRAMA
+----------------------------------------- */
+@media (max-width: 768px){
+  .header .container{
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .nav-list{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .cards{
+    grid-template-columns: 1fr;
+  }
+
+  .picks-grid{
+    flex-direction: column;
+  }
+
+  .pick-card{
+    flex: 1;
+  }
+
+  .form-row{
+    flex-direction: column;
+  }
+}
