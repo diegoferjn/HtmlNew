@@ -1,100 +1,189 @@
+/*
+============================================
+0. VARIABLES Y BASE
+============================================
+*/
 :root {
-  --brand: #2563eb;
+  --bg: #0b1020;
+  --card: #111a2e;
+  --text: #e7ecf5;
+  --muted: #9aa6bf;
+  --brand: #6ea8fe;
+  --success: #3ddc97;
 
+  --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
-  --space-lg: 2rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
 
-  --bg: #ffffff;
-  --text: #111827;
-  --muted: #6b7280;
-  --border: #e5e7eb;
+  --radius: 12px;
 }
 
-/* Base */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
+html,
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
 }
 
-a { color: inherit; }
+a {
+  color: inherit;
+}
 
+/*
+============================================
+1. UTILIDADES
+============================================
+*/
 .container {
-  width: 90%;
-  max-width: 1100px;
+  width: min(1100px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
-.section {
-  padding: var(--space-lg) 0;
-}
-
-/* Header + nav (existía en responsive sin drama: .header .container y .nav-list) */
+/*
+============================================
+2. HEADER
+============================================
+*/
 .header {
-  border-bottom: 1px solid var(--border);
-  padding: var(--space-md) 0;
+  border-bottom: 1px solid #202938;
+  background: var(--bg);
 }
 
 .header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-md);
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
 }
 
-.brand {
+.logo {
   text-decoration: none;
   font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
   gap: var(--space-md);
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .nav-list a {
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
+  color: var(--muted);
+}
+
+.nav-list a:hover {
+  color: var(--brand);
 }
 
 /*
 ============================================
-6. GRID MÍNIMO PARA CUADRÍCULAS
+3. COMPONENTES BÁSICOS
+============================================
+*/
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  background: var(--brand);
+  color: #0b1020;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+}
+
+.form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: flex;
+  gap: var(--space-md);
+  align-items: end;
+}
+
+.form-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+input {
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #202938;
+  background: #0f1730;
+  color: var(--text);
+}
+
+/*
+============================================
+4. CARDS (GRID)
 ============================================
 */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
 
 .card {
-  border: 1px solid var(--border);
-  padding: var(--space-md);
-}
-
-.card-title {
-  margin: 0 0 var(--space-sm);
-}
-
-.card-meta {
-  margin: 0 0 var(--space-sm);
-  color: var(--muted);
+  background: var(--card);
+  border: 1px solid #202938;
+  border-radius: var(--radius);
+  padding: var(--space-lg);
 }
 
 .card-rating {
-  margin: 0;
+  color: var(--success);
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
 }
 
-/* Top Picks (existía en responsive sin drama: .picks-grid y .pick-card) */
+.card-title {
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.card-text {
+  margin: 0 0 var(--space-md) 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card-link {
+  text-decoration: none;
+  color: var(--brand);
+}
+
+/*
+============================================
+5. TOP PICKS (FLEX)
+============================================
+*/
 .picks-grid {
   display: flex;
   gap: var(--space-lg);
@@ -102,43 +191,42 @@ a { color: inherit; }
 
 .pick-card {
   flex: 1;
-  border: 1px solid var(--border);
-  padding: var(--space-md);
+  background: var(--card);
+  border: 1px solid #202938;
+  border-radius: var(--radius);
+  padding: var(--space-lg);
 }
 
-/* Form (existía en responsive sin drama: .form-row) */
-.contact-form {
-  border: 1px solid var(--border);
-  padding: var(--space-md);
+.pick-title {
+  margin: 0 0 var(--space-sm) 0;
 }
 
-.form-row {
-  display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
+.pick-text {
+  margin: 0;
+  color: var(--muted);
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  flex: 1;
+/*
+============================================
+6. ACCESIBILIDAD MÍNIMA QUE IMPORTA
+============================================
+*/
+/* Contraste y foco visible */
+:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
-input, textarea, button {
-  font: inherit;
-}
-
-input, textarea {
-  padding: var(--space-sm);
-  border: 1px solid var(--border);
-}
-
-button {
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--border);
-  background: transparent;
-  cursor: pointer;
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 /*
@@ -172,28 +260,183 @@ button {
 
   .form-row {
     flex-direction: column;
+    align-items: stretch;
   }
 }
 
 /*
 ============================================
-8. ACCESIBILIDAD MÍNIMA QUE IMPORTA
+13. ORDEN Y MANTENIMIENTO
 ============================================
 */
-/* Contraste y foco visible */
-:focus {
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
+/* Secciones específicas */
+.hero {
+  background: var(--card);
+  padding: var(--space-2xl) 0;
+  text-align: center;
 }
 
-/* Texto solo para lectores de pantalla */
-.sr-only {
-  width: 1px;
-  height: 1px;
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--muted);
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+  text-align: center;
+}
+
+.section-description {
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.collection,
+.top-picks,
+.newsletter,
+.suggest-game,
+.contact {
+  padding: var(--space-2xl) 0;
+  scroll-margin-top: 120px; /* Asegura que el título sea visible */
+}
+
+.top-picks {
+  background: var(--card);
+}
+
+.newsletter {
+  background: var(--card);
+}
+
+/* Nota: gradientes más adelante */
+.suggest-game {
+  background: var(--bg);
+}
+
+.contact {
+  background: var(--card);
+}
+
+.contact-info {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.contact-info p {
+  color: var(--muted);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.contact-details {
+  margin-top: var(--space-lg);
+}
+
+.contact-details h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-details ul {
+  list-style: none;
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
+}
+
+.contact-details li {
+  color: var(--muted);
+  padding: var(--space-xs) 0;
+  padding-left: var(--space-lg);
+  list-style: none;
+}
+
+.contact-details li::before {
+  content: "✓ ";
+  color: var(--success);
+  font-weight: bold;
+  margin-right: var(--space-sm);
+}
+
+/* Footer */
+.footer {
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid #202938;
+  background: var(--bg);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--brand);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-description,
+.footer-info {
+  color: var(--muted);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: var(--brand);
+}
+
+.footer-bottom {
+  border-top: 1px solid #202938;
+  padding-top: var(--space-lg);
+  text-align: center;
+}
+
+.footer-copyright {
+  color: var(--muted);
+  font-size: 0.875rem;
 }
