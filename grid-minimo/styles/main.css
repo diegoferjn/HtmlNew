@@ -16,35 +16,15 @@ html {
 
 /*
 ============================================
-2. ESTILOS BASE
+2. VARIABLES (BASE)
 ============================================
 */
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  color: #e6edf3;
-  background: #0f141a;
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-/*
-============================================
-3. VARIABLES
-============================================
-*/
-/* (Estas variables se asume que ya venían en tu main.css del proyecto.
-   Si ya las tienes, deja tu bloque tal cual y no dupliques.) */
 :root {
+  --bg: #0f141a;
   --text: #e6edf3;
   --muted: #9aa4b2;
-  --brand: #7aa2ff;
-  --card: #121a23;
+  --card: #121a22;
+  --brand: #7dd3fc;
 
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -54,6 +34,25 @@ body {
   --space-2xl: 3rem;
 
   --radius-lg: 12px;
+}
+
+/*
+============================================
+3. ESTILOS BASE (BODY + CONTENEDOR)
+============================================
+*/
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 /*
@@ -90,7 +89,7 @@ body {
   min-height: 80vh;
 }
 
-/* Secciones específicas */
+/* Hero */
 .hero {
   background: var(--card);
   padding: var(--space-2xl) 0;
@@ -137,6 +136,8 @@ body {
   display: flex;
   list-style: none;
   gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
 }
 
 /* Top Picks con Flexbox */
@@ -154,4 +155,15 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--space-md);
   text-align: center;
+}
+
+/*
+============================================
+6. GRID MÍNIMO PARA CUADRÍCULAS
+============================================
+*/
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
 }
